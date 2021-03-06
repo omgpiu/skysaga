@@ -1,12 +1,14 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import st from './App.module.css';
+import {Routes} from './common/c1-routes/Routes';
 
 function App() {
   return (
-    <div className="App">
+      <>
+        <Routes/>
+      </>
 
-    </div>
+
   );
 }
 

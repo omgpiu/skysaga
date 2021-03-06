@@ -1,0 +1,33 @@
+.loginForm {
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    top: calc(40% - 169px);
+
+    border: 2px solid black;
+    max-width: 28.3%;
+    height: 33%;
+
+    background-color: white;
+    border-radius: 20px;
+
+
+}
+
+.loginFormForgot {
+    float: right;
+}
+
+.antColRtl .loginFormForgot {
+    float: left;
+}
+
+.loginFormButton {
+    width: 100px;
+}
+
+/*.inp {*/
+/*    width: 200px;*/
+/*    height: 34px;*/
+/*}*/
