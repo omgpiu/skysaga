@@ -4,27 +4,30 @@ import st from './Login.module.css';
 import React from 'react';
 import {Redirect} from 'react-router-dom';
 import {SKY_SCANNER} from '../../../common/c1-routes/Routes';
-import {useSessionStorage} from '../../../utils/useHooks/uH1-storage/use-localstorage';
+import {useDispatch} from 'react-redux';
 
+export type PropsType = {
+    isAuth: boolean | null
+    setIsAuth: (value: boolean) => void
+}
 
-export const Login = () => {
-
-    const [isAuth, setIsAuth] = useSessionStorage({
-        key: 'isAuth',
-        initialValue: false
-    });
+export const Login = (props: PropsType) => {
+    const dispatch = useDispatch();
+    // const [isAuth, setIsAuth] = useSessionStorage({
+    //     key: 'isAuth',
+    //     initialValue: 'login'
+    // });
     // const error = useSelector(getError);
     const error = '';
 
 
-    console.log(isAuth + ' login');
     const onSubmit = (values: {
         email: string,
         password: string,
-        captcha: string,
-        rememberMe: boolean
     }) => {
-        setIsAuth(true);
+
+        props.setIsAuth(true);
+        // dispatch(authActions.setAuthUserData(values.email, values.password, true));
         // await dispatch(login(values));
 
     };
@@ -34,7 +37,7 @@ export const Login = () => {
     // };
 
 
-    if (isAuth) {
+    if (props.isAuth) {
         return <Redirect to={SKY_SCANNER}/>;
 
     }

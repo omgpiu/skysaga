@@ -10,14 +10,12 @@ export default 1;
 //     isAuth: boolean
 // }
 //
-// const LC = (props: PropsType) => {
+// const LoginContainer = (props) => {
 //
 //
 //     if (props.isAuth) {
 //         return <Redirect to={SKY_SCANNER}/>;
-//
 //     }
-//
 //     return <div className={st.wrapper}>
 //
 //         <Login/>

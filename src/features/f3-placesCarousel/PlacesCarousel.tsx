@@ -17,7 +17,7 @@ export const PlacesCarousel = () => {
 
 
             {slides.map(slide => {
-                return <img src={slide.img} alt={slide.title} className={st.slide}/>;
+                return <img src={slide.img} alt={slide.title} className={st.slide} key={slide.id}/>;
             })}
 
         </Carousel>

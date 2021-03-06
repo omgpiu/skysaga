@@ -6,24 +6,23 @@ import {SkyScannerHeader} from './s1-ui1-main/SckyScannerHead';
 import {SkyScannerBody} from './s1-ui1-main/SkyScannerBody';
 import {Redirect} from 'react-router-dom';
 import {LOGIN} from '../../../common/c1-routes/Routes';
-import {useSessionStorage} from '../../../utils/useHooks/uH1-storage/use-localstorage';
+import {useDispatch} from 'react-redux';
+import {PropsType} from '../../f1-login/l1-ui/Login';
+import {fetchData} from '../s2-bll/skyScanner-sagas';
 
 
-const SkyScanner: React.FC = () => {
-
-    const [isAuth, setIsAuth] = useSessionStorage({
-        key: 'isAuth',
-        initialValue: true
-
-    });
+const SkyScanner: React.FC<PropsType> = (props) => {
+    const dispatch = useDispatch();
 
 
     const onClickHandler = () => {
-        setIsAuth(false);
+        props.setIsAuth(false);
+    };
+    const ClickHandler = () => {
+        dispatch(fetchData('2021-03-10'));
     };
 
-    console.log(isAuth + ' skyScanner');
-    if (!isAuth) {
+    if (!props.isAuth) {
 
         return <Redirect to={LOGIN}/>;
 
@@ -32,6 +31,7 @@ const SkyScanner: React.FC = () => {
     return (
         <div className={st.wrapper}>
             <button onClick={onClickHandler}>Logout</button>
+            <button onClick={ClickHandler}>link</button>
             <SkyScannerHeader/>
             <PlacesCarousel/>
             <SkyScannerBody/>

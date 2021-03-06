@@ -53,9 +53,7 @@ export const useStorage = <V, K = any>({
     useEffect(() => {
         const storedValue = storage.getItem(key);
         const actualValue = storedValue ?? initialValue;
-
         setLocalValue(actualValue);
-
         if (actualValue !== null && storedValue !== actualValue) {
             handleSetValue(actualValue);
         }
@@ -66,16 +64,13 @@ export const useStorage = <V, K = any>({
             if (!isActualEvent<V, K>(event, storage, key)) {
                 return;
             }
-
             setLocalValue(event.value);
         };
 
         storageEventObserver.subscribe(handleStorageValueChange);
-
         return () => {
             storageEventObserver.unsubscribe(handleStorageValueChange);
         };
     }, [storage, key]);
-
     return [localValue, handleSetValue, handleRemoveValue];
 };

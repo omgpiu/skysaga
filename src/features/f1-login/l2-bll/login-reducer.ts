@@ -3,7 +3,7 @@ import {InferActionsTypes} from '../../../main/m2-bll/store';
 const initialState = {
     email: null as string | null,
     login: null as string | null,
-    isAuth: true,//have to change
+    isAuth: false,
     error: ''
 
 };

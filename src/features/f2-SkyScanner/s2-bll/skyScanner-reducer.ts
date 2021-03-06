@@ -5,6 +5,7 @@ import city3 from '../../../assets/slides/city3.png';
 import city13 from '../../../assets/slides/city13.png';
 import city11 from '../../../assets/slides/city11.png';
 import city12 from '../../../assets/slides/city12.png';
+import {CarrierType, FlyDataType, PlaceType, QuoteType} from '../../../main/m3-dal/mainAPI';
 
 const initialState = {
     slides: [
@@ -37,40 +38,68 @@ const initialState = {
             title: 'city13',
             id: '13',
             img: city13
-        }
+        },
     ],
+    Quotes: [] as QuoteType[],
+    Carriers: [] as CarrierType[],
+    Places: [] as PlaceType[],
+
+    Tickets: [] as TicketType[]
+
 
 };
 
 const scyScannerReducer = (state: InitialStateType = initialState, action: ActionsType): InitialStateType => {
     switch (action.type) {
-        case 'AUTH/SET_USER_DATA':
-            return {
-                ...state, ...action.payload
-            };
-        case  'AUTH/SET_ERROR' :
+        case 'SKY_SCANNER/SET_FLY_DATA':
+
             return {
                 ...state,
-                ...action.payload
+                // Quotes: [...state.Quotes, ...action.payload.Quotes],
+                // Carriers: [...state.Carriers, ...action.payload.Carriers],
+                // Places: [...state.Places, ...action.payload.Places],
+                Tickets: [
 
+                    // places: [...action.payload.Places],
+                    // carriers: [...action.payload.Carriers],
+                    // quotes: [...action.payload.Quotes]
+                ]
             };
+
         default:
             return state;
     }
 };
 export const airTableActions = {
-    setAuthUserData: (email: string | null, login: string | null, isAuth: boolean) => ({
-        type: 'AUTH/SET_USER_DATA', payload: {
-            email, login, isAuth
-        }
+    setFlyData: (flyData: FlyDataType) => ({
+        type: 'SKY_SCANNER/SET_FLY_DATA', payload: flyData
     } as const),
-    setError: (error: string) => (
-        {type: 'AUTH/SET_ERROR', payload: {error}} as const),
-};
 
+
+};
+type TicketType = {
+    places: PlaceType[],
+    carriers: CarrierType[]
+    quotes: QuoteType[]
+}
 type  InitialStateType = typeof initialState
 
 type ActionsType = InferActionsTypes<typeof airTableActions>
+
+type FlyDataForRenderType = {
+    price: string
+    carrier: string
+    symbol: symbol
+
+    originCityName: string
+    originIataCode: string
+    originDate: string
+
+    destinationCityName: string
+    destinationIataCode: string
+
+
+}
 
 export type SlideType = {
     title: string
