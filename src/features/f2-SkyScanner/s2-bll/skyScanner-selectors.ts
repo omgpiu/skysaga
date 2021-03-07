@@ -17,3 +17,6 @@ export const getPlaces = (state: AppRootStateType) => {
 export const getDepartureDate = (state: AppRootStateType) => {
     return state.skyScanner.departureDate;
 };
+export const getIataCodes = (state: AppRootStateType) => {
+    return state.skyScanner.IataCodes;
+};

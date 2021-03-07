@@ -19,7 +19,6 @@ const SkyScanner: React.FC<PropsType> = (props) => {
         props.setIsAuth(false);
     };
     const ClickHandler = () => {
-        debugger
         dispatch(fetchData(departureDate));
     };
     if (!props.isAuth) {
@@ -27,7 +26,7 @@ const SkyScanner: React.FC<PropsType> = (props) => {
     }
     return (
         <div className={st.wrapper}>
-            {/*<button onClick={onClickHandler}>Logout</button>*/}
+            <button onClick={onClickHandler}>Logout</button>
             <button onClick={ClickHandler}>link</button>
             <div className={st.bodyWrapper}>
                 <SkyScannerHeader/>

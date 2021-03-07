@@ -1,0 +1,40 @@
+.wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 29px;
+}
+
+.text {
+    font-family: Roboto, serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 32px;
+    line-height: 37px;
+    /* identical to box height */
+    display: flex;
+    align-items: center;
+    color: #424242;
+    border: 1px solid black;
+
+}
+
+.datePickerText input {
+    font-family: SF Pro Text, sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 25px;
+    line-height: 22px;
+    /* or 88% */
+
+    display: flex;
+    align-items: center;
+    text-align: right;
+    letter-spacing: -0.408px;
+    color: #1157A7;
+}
+
+.datePickerIcon {
+    font-size: 22px;
+    color: #1157A7
+}

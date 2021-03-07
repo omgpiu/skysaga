@@ -26,10 +26,11 @@
 
 
 .buttonPosition{
-    position: relative;
     width: 100%;
     text-align: right;
     right: 32px;
+    display: block;
+
 }
 
 .loginFormButton {

@@ -43,7 +43,8 @@ const initialState = {
     Quotes: [] as QuoteType[],
     Carriers: [] as CarrierType[],
     Places: [] as PlaceType[],
-    departureDate: ''
+    departureDate: '',
+    IataCodes: [] as Array<string>
 
 };
 
@@ -72,6 +73,12 @@ const scyScannerReducer = (state: InitialStateType = initialState, action: Actio
                 Carriers: [],
                 Places: []
             };
+        case 'SKY_SCANNER/SET_IataCodes':
+
+            return {
+                ...state,
+
+            };
 
         default:
             return state;
@@ -86,6 +93,9 @@ export const airTableActions = {
     } as const),
     setEmptyList: () => ({
         type: 'SKY_SCANNER/SET_EMPTY_LIST'
+    } as const),
+    setIataCodes: (codes: Array<string>) => ({
+        type: 'SKY_SCANNER/SET_IataCodes', payload: codes
     } as const)
 
 };

@@ -1,11 +1,11 @@
 import React from 'react';
-import logo from '../../../../assets/row/plane.png';
 import {HeartOutlined} from '@ant-design/icons';
 import st from './ScySkannerRow.module.css';
 import moment from 'moment';
+import {useDispatch} from 'react-redux';
 // import {getAll} from '../../s2-bll/skyScanner-selectors';
 type PropsType = {
-    company: string
+    company: string | undefined
     date: string
     price: number
     departureDate: string
@@ -17,8 +17,15 @@ type PropsType = {
 
 }
 export const SkyScannerRow: React.FC<PropsType> = (props) => {
-
+    const dispatch = useDispatch();
     const {company, date, price, departureDate, departureCity, departureIataCode, arrivalCity, arrivalIataCode} = props;
+
+    //
+    // useEffect(() => {
+    //     debugger
+    //     dispatch(airTableActions.setIataCodes([departureIataCode, arrivalIataCode]));
+    // }, [props]);
+
 
     return (
         <div className={st.wrapper}>

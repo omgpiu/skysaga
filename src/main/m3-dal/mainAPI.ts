@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axios, {AxiosResponse} from 'axios';
 
 
 const settings = {
@@ -16,10 +16,8 @@ const instance = axios.create({
 
 export const skyScannerAPI = {
 
-    getTickets(flyDate: string) {
-        debugger
-        return instance.get(flyDate).then(res => {
-            debugger
+    getTickets(flyDate: string):Promise<FlyDataType> {
+        return instance.get<FlyDataType>(flyDate).then(res => {
             return res.data;
         });
     }
@@ -73,14 +71,7 @@ export type FlyDataType = {
     Places: PlaceType[]
 
 }
-export type ResponseType<D = {}> = {
-    config: Object
-    headers: Object
-    data: D
-    request: Object
-    status: number
-    statusText: string
-}
+
 
 
 const fakeRequest = (value?: any, textLog: any = 'resolve / response fake API') => {

@@ -21,7 +21,7 @@ export const Login = (props: PropsType) => {
         email: string,
         password: string,
     }) => {
-
+        console.log(values);
         props.setIsAuth(true);
         // dispatch(authActions.setAuthUserData(values.email, values.password, true));
         // await dispatch(login(values));
@@ -44,73 +44,74 @@ export const Login = (props: PropsType) => {
 
             >
                 <div className={st.title}>Simple Flight Check</div>
-                <Form.Item
-                    className={st.form}
-                    name="email"
-                    {...error && {
-                        help: error,
-                        validateStatus: 'error',
-                    }}
-                    rules={[
-                        {
-                            type: 'email',
-                            message: 'The input is not valid E-mail!',
-                        },
-                        {
-                            required: true,
-                            message: 'Please input your Email!',
-                        },
-                    ]}
-                >
-                    <Input prefix={<UserOutlined className="site-form-item-icon"/>}
-                           type="email"
-                           name="email"
-                           placeholder="Email"
-                        // onClick={resetError}
-                           className={st.formInput}
-                        // bordered={false}
+                <div>
+                    <Form.Item
+                        className={st.form}
+                        name="email"
+                        {...error && {
+                            help: error,
+                            validateStatus: 'error',
+                        }}
+                        rules={[
+                            {
+                                type: 'email',
+                                message: 'The input is not valid E-mail!',
+                            },
+                            {
+                                required: true,
+                                message: 'Please input your Email!',
+                            },
+                        ]}
+                    >
+                        <Input prefix={<UserOutlined className="site-form-item-icon"/>}
+                               type="email"
+                               name="email"
+                               placeholder="Email"
+                            // onClick={resetError}
+                               className={st.formInput}
+                            // bordered={false}
 
-                    />
-                </Form.Item>
-                <Form.Item
-                    className={st.form}
-
-                    name="password"
-                    {...error && {
-                        help: error,
-                        validateStatus: 'error'
-                    }}
-                    rules={[
-                        {
-                            required: true,
-                            message: 'Please input your Password!',
-                        },
-                        {
-                            min: 8,
-                            message: 'Must be more than  8 characters!',
-                        },
-
-                    ]}
-                >
-                    <Input.Password
-                        prefix={<LockOutlined className="site-form-item-icon"/>}
-                        placeholder="Password"
-                        iconRender={visible => (visible ? <EyeTwoTone/> : <EyeInvisibleOutlined/>)}
-
-                        className={st.formInput}
-                    />
-                </Form.Item>
-                <div className={st.buttonPosition}>
-                    <Form.Item>
-                        <Button type="primary" htmlType="submit" className={st.loginFormButton}
-                        >
-                            Войти
-                        </Button>
-
+                        />
                     </Form.Item>
+                    <Form.Item
+                        className={st.form}
+
+                        name="password"
+                        {...error && {
+                            help: error,
+                            validateStatus: 'error'
+                        }}
+                        rules={[
+                            {
+                                required: true,
+                                message: 'Please input your Password!',
+                            },
+                            {
+                                min: 8,
+                                message: 'Must be more than  8 characters!',
+                            },
+
+                        ]}
+                    >
+                        <Input.Password
+                            prefix={<LockOutlined className="site-form-item-icon"/>}
+                            placeholder="Password"
+                            iconRender={visible => (visible ? <EyeTwoTone/> : <EyeInvisibleOutlined/>)}
+
+                            className={st.formInput}
+                        />
+                    </Form.Item>
+                    <div className={st.buttonPosition}>
+                        <Form.Item>
+                            <Button type="primary" htmlType="submit" className={st.loginFormButton}
+                            >
+                                Войти
+                            </Button>
+
+                        </Form.Item>
+                    </div>
+
                 </div>
-
-
             </Form>
             <div className={st.backGround}></div>
         </>

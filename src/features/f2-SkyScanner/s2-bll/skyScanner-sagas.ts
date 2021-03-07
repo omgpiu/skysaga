@@ -12,13 +12,10 @@ export type FlyDataType = {
 }
 export function* fetchFlyData(action: ReturnType<typeof fetchData>): any {
     try {
-        debugger
         const res = yield call(skyScannerAPI.getTickets, action.flyDate);
         yield put(airTableActions.setFlyData(res));
     } catch (e) {
-        debugger
-        yield put(airTableActions.setEmptyList());
-        console.log(e);
+        // yield put(airTableActions.setEmptyList());
     }
 }
 export const fetchData = (flyDate: string) => ({
