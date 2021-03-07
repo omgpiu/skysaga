@@ -1,8 +1,7 @@
 .bodyWrapper {
-
     margin: 0 auto;
     width: 680px;
-    height: 895px;
+    height: 100%;
     left: 380px;
     top: 69px;
 
@@ -30,3 +29,34 @@
 .count {
     color: #1157A7;
 }
+
+
+.scrollBlock {
+
+    padding-left: 11px;
+    max-height: 500px;
+    height: 90%;
+    width: 100%;
+    overflow-y: scroll;
+    border-right: 1px solid  #E7E7E7;
+    border-radius: 2px
+}
+
+.scrollBlock::-webkit-scrollbar-track {
+    border-radius: 2px;
+}
+
+.scrollBlock::-webkit-scrollbar {
+    width: 2px;
+}
+
+.scrollBlock::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background: #f0f2f5;
+}
+
+.scrollBlock:hover::-webkit-scrollbar-thumb {
+    background: #1157A7;
+    height: 2px;
+}
+

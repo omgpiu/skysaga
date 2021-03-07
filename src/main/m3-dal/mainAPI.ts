@@ -1,4 +1,4 @@
-import axios, {AxiosResponse} from 'axios';
+import axios from 'axios';
 
 
 const settings = {
@@ -15,9 +15,9 @@ const instance = axios.create({
 });
 
 export const skyScannerAPI = {
-
+    // flyDate
     getTickets(flyDate: string):Promise<FlyDataType> {
-        return instance.get<FlyDataType>(flyDate).then(res => {
+        return instance.get<FlyDataType>('2021-09').then(res => {
             return res.data;
         });
     }

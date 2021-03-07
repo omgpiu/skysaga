@@ -63,7 +63,11 @@ export const SkyScannerBody = () => {
     });
     return <>
         {addToFavorite}
-        {tickets}
+        <div className={st.scrollBlock}>
+
+
+            {tickets}
+        </div>
     </>;
 
 };

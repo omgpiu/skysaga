@@ -10,6 +10,8 @@ import {useDispatch, useSelector} from 'react-redux';
 import {PropsType} from '../../f1-login/l1-ui/Login';
 import {fetchData} from '../s2-bll/skyScanner-sagas';
 import {getDepartureDate} from '../s2-bll/skyScanner-selectors';
+import {Button} from 'antd';
+import {UploadOutlined} from '@ant-design/icons';
 
 
 const SkyScanner: React.FC<PropsType> = (props) => {
@@ -25,17 +27,32 @@ const SkyScanner: React.FC<PropsType> = (props) => {
         return <Redirect to={LOGIN}/>;
     }
     return (
+        // <div className={st.body}>
+
         <div className={st.wrapper}>
-            <button onClick={onClickHandler}>Logout</button>
-            <button onClick={ClickHandler}>link</button>
+            <div style={{alignSelf: 'inherit', paddingLeft: '1241px', paddingTop: '20px'}}>
+
+                <Button onClick={onClickHandler}
+                        className={st.logoutButton}
+                >Выйти
+                    {<UploadOutlined rotate={90} style={{color: '#1157A7'}}/>}
+                </Button>
+
+
+            </div>
+
+            {/*<button onClick={ClickHandler}>link</button>*/}
+
+
             <div className={st.bodyWrapper}>
                 <SkyScannerHeader/>
                 <PlacesCarousel/>
                 <SkyScannerBody/>
             </div>
-
-
         </div>
+
+
+        // </div>
     );
 
 };
