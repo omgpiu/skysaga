@@ -1,6 +1,24 @@
+.wrapper {
+    padding-bottom: 20px;
+}
+
+
 .slide {
     height: 149px;
-    width: 168px;
+    width: 164px;
     text-align: center;
+    box-sizing: border-box;
+}
+
+
+.favoriteText {
+    font-family: SF Pro Text, sans-serif;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 17px;
+    line-height: 1;
+    /* or 129% */
+    letter-spacing: -0.408px;
+    color: #424242;
 
 }

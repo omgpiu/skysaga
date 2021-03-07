@@ -1,7 +1,6 @@
 import React from 'react';
 import {Carousel} from 'antd';
 import {useSelector} from 'react-redux';
-
 import st from './PlacesCarousel.module.css';
 import {getSlides} from '../f2-SkyScanner/s2-bll/skyScanner-selectors';
 
@@ -11,7 +10,7 @@ export const PlacesCarousel = () => {
     const slides = useSelector(getSlides);
 
 
-    return <div>
+    return <div className={st.wrapper}>
         <Carousel autoplay slidesToShow={3}
                   dots={false}>
 

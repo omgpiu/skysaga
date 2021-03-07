@@ -13,18 +13,27 @@ type PropsType = {
     departureIataCode: string
     arrivalCity: string
     arrivalIataCode: string
+    addToFavorite: () => void
 
 
 }
 export const SkyScannerRow: React.FC<PropsType> = (props) => {
     const dispatch = useDispatch();
-    const {company, date, price, departureDate, departureCity, departureIataCode, arrivalCity, arrivalIataCode} = props;
+    const {
+        company,
+        date,
+        price,
+        departureDate,
+        departureCity,
+        departureIataCode,
+        arrivalCity,
+        arrivalIataCode,
+        addToFavorite
+    } = props;
 
-    //
-    // useEffect(() => {
-    //     debugger
-    //     dispatch(airTableActions.setIataCodes([departureIataCode, arrivalIataCode]));
-    // }, [props]);
+    const onClickHandler = () => {
+        addToFavorite();
+    };
 
 
     return (
@@ -48,7 +57,7 @@ export const SkyScannerRow: React.FC<PropsType> = (props) => {
             </div>
             <div className={st.price}>
                 <div>
-                    <HeartOutlined/>
+                    <HeartOutlined onClick={onClickHandler}/>
                 </div>
                 {price}
             </div>
