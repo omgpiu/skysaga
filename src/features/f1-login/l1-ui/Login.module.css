@@ -25,7 +25,7 @@
 }
 
 
-.buttonPosition{
+.buttonPosition {
     width: 100%;
     text-align: right;
     right: 32px;
@@ -70,7 +70,7 @@
 }
 
 .title {
-    font-family: Roboto, serif;
+    /*font-family: 'Roboto', sans-serif;*/
     font-style: normal;
     font-weight: 500;
     font-size: 24px;

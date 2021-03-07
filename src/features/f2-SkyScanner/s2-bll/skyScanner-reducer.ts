@@ -44,7 +44,7 @@ const initialState = {
     Carriers: [] as CarrierType[],
     Places: [] as PlaceType[],
     departureDate: '',
-    IataCodes: [] as Array<string>
+    favorites: [] as TicketType[]
 
 };
 
@@ -60,26 +60,21 @@ const scyScannerReducer = (state: InitialStateType = initialState, action: Actio
 
             };
         case 'SKY-SCANNER/SET_DEPARTURE_DATE':
-
             return {
                 ...state,
                 departureDate: action.payload
             };
-        case 'SKY_SCANNER/SET_EMPTY_LIST':
+        case 'SKY_SCANNER/FOLLOW_FAVORITE':
+            return {
+                ...state,
+                favorites: [action.payload, ...state.favorites]
+            };
+        case 'SKY_SCANNER/UNFOLLOW_FAVORITE':
 
             return {
                 ...state,
-                Quotes: [],
-                Carriers: [],
-                Places: []
+                favorites: [...state.favorites.filter(e => action.payload.QuoteId !== e.QuoteId)]
             };
-        case 'SKY_SCANNER/SET_IataCodes':
-
-            return {
-                ...state,
-
-            };
-
         default:
             return state;
     }
@@ -91,41 +86,19 @@ export const airTableActions = {
     setDepartureDate: (date: string) => ({
         type: 'SKY-SCANNER/SET_DEPARTURE_DATE', payload: date
     } as const),
-    setEmptyList: () => ({
-        type: 'SKY_SCANNER/SET_EMPTY_LIST'
+    followFavorite: (favorite: TicketType) => ({
+        type: 'SKY_SCANNER/FOLLOW_FAVORITE', payload: favorite
     } as const),
-    setIataCodes: (codes: Array<string>) => ({
-        type: 'SKY_SCANNER/SET_IataCodes', payload: codes
-    } as const)
+    unfollowFavorite: (favorite: TicketType) => ({
+        type: 'SKY_SCANNER/UNFOLLOW_FAVORITE', payload: favorite
+    } as const),
 
 };
 type TicketType = {
-    places: PlaceType[],
-    carriers: CarrierType[]
-    quotes: QuoteType[]
+    QuoteId: number
+    company: string
+    price: number
 }
 type  InitialStateType = typeof initialState
-
 type ActionsType = InferActionsTypes<typeof airTableActions>
-
-type FlyDataForRenderType = {
-    price: string
-    carrier: string
-    symbol: symbol
-
-    originCityName: string
-    originIataCode: string
-    originDate: string
-
-    destinationCityName: string
-    destinationIataCode: string
-
-
-}
-
-export type SlideType = {
-    title: string
-    img: string
-    id: string
-}
 export default scyScannerReducer;

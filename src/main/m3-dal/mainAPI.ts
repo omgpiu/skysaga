@@ -16,7 +16,7 @@ const instance = axios.create({
 
 export const skyScannerAPI = {
     // flyDate
-    getTickets(flyDate: string):Promise<FlyDataType> {
+    getTickets(flyDate: string): Promise<FlyDataType> {
         return instance.get<FlyDataType>('2021-09').then(res => {
             return res.data;
         });
@@ -71,7 +71,6 @@ export type FlyDataType = {
     Places: PlaceType[]
 
 }
-
 
 
 const fakeRequest = (value?: any, textLog: any = 'resolve / response fake API') => {

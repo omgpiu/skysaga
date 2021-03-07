@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {PlacesCarousel} from '../../f3-placesCarousel/PlacesCarousel';
 
 import st from './SkyScanner.module.css';
@@ -17,6 +17,14 @@ import {UploadOutlined} from '@ant-design/icons';
 const SkyScanner: React.FC<PropsType> = (props) => {
     const dispatch = useDispatch();
     const departureDate = useSelector(getDepartureDate);
+
+    useEffect(() => {
+
+        dispatch(fetchData(departureDate));
+
+    }, [departureDate]);
+
+
     const onClickHandler = () => {
         props.setIsAuth(false);
     };
@@ -30,20 +38,15 @@ const SkyScanner: React.FC<PropsType> = (props) => {
         // <div className={st.body}>
 
         <div className={st.wrapper}>
-            <div style={{alignSelf: 'inherit', paddingLeft: '1241px', paddingTop: '20px'}}>
+            <div className={st.logoutButtonWrapper}>
 
                 <Button onClick={onClickHandler}
                         className={st.logoutButton}
                 >Выйти
-                    {<UploadOutlined rotate={90} style={{color: '#1157A7'}}/>}
+                    {<UploadOutlined rotate={90} className={st.logoutButtonLogo}/>}
                 </Button>
 
-
             </div>
-
-            {/*<button onClick={ClickHandler}>link</button>*/}
-
-
             <div className={st.bodyWrapper}>
                 <SkyScannerHeader/>
                 <PlacesCarousel/>

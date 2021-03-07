@@ -15,6 +15,7 @@
     "@types/react-router-dom": "^5.1.7",
     "antd": "^4.13.0",
     "axios": "^0.21.1",
+    "currency-symbol-map": "^5.0.1",
     "moment": "^2.29.1",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",

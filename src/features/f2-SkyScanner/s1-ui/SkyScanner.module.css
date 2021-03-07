@@ -1,5 +1,6 @@
 .wrapper {
-    width: 100%;
+    /*min-width: 100%;*/
+    max-width: 100%;
     background-color: #E5E5E5;
     height: 100vh;
     display: flex;
@@ -12,6 +13,7 @@
     margin-top: 17px;
     width: 680px;
     height: 895px;
+    max-height: 895px;
     padding-top: 65px;
     padding-left: 40px;
     padding-right: 40px;
@@ -25,6 +27,11 @@
     background-color: #E5E5E5;
     box-shadow: none;
     color: #1157A7;
+    font-family: SF Pro Text, sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 22px;
 }
 
 .logoutButton:hover {
@@ -32,3 +39,12 @@
     color: #1157A7;
 }
 
+.logoutButtonWrapper {
+    padding-left: 1241px;
+    padding-top: 20px;
+}
+
+.logoutButtonLogo {
+    color: #1157A7;
+    padding-left: 10px;
+}
