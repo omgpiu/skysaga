@@ -11,6 +11,7 @@
 
     background-color: white;
     border-radius: 20px;
+    z-index: 999;
 
 
 }
@@ -31,3 +32,19 @@
 /*    width: 200px;*/
 /*    height: 34px;*/
 /*}*/
+.wrapper {
+    position: relative;
+}
+
+
+.backGround {
+    background-image: url('/src/assets/background/Rectangle.png');
+    background-color: #cccccc;
+    height: 100vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    filter: blur(2px);
+
+}

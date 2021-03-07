@@ -6,20 +6,24 @@ import {SkyScannerHeader} from './s1-ui1-main/SckyScannerHead';
 import {SkyScannerBody} from './s1-ui1-main/SkyScannerBody';
 import {Redirect} from 'react-router-dom';
 import {LOGIN} from '../../../common/c1-routes/Routes';
-import {useDispatch} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 import {PropsType} from '../../f1-login/l1-ui/Login';
 import {fetchData} from '../s2-bll/skyScanner-sagas';
+import {getDepartureDate} from '../s2-bll/skyScanner-selectors';
 
 
 const SkyScanner: React.FC<PropsType> = (props) => {
     const dispatch = useDispatch();
+    const departureDate = useSelector(getDepartureDate);
 
 
     const onClickHandler = () => {
         props.setIsAuth(false);
     };
+
     const ClickHandler = () => {
-        dispatch(fetchData('2021-03-10'));
+        debugger
+        dispatch(fetchData(departureDate));
     };
 
     if (!props.isAuth) {

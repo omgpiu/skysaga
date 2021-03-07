@@ -15,9 +15,11 @@ const instance = axios.create({
 });
 
 export const skyScannerAPI = {
+
     getTickets(flyDate: string) {
-        return instance.get<FlyDataType>(flyDate).then(res => {
-            console.log(res.data);
+        debugger
+        return instance.get(flyDate).then(res => {
+            debugger
             return res.data;
         });
     }
@@ -25,7 +27,7 @@ export const skyScannerAPI = {
 // '2021-09-01'
 
 export type CarrierType = {
-    CarriedId: number
+    CarrierId: number
     Name: string
 }
 export type PlaceType = {
@@ -39,7 +41,7 @@ export type PlaceType = {
     Type: string
 
 }
-type CurrencieType = {
+export type CurrencieType = {
     Code: string
     DecimalDigits: number
     DecimalSeparator: string
@@ -67,8 +69,6 @@ export type QuoteType = {
 
 export type FlyDataType = {
     Carriers: CarrierType[]
-    Places: PlaceType[]
-    Currencies: CurrencieType[]
     Quotes: QuoteType[]
 
 
@@ -87,12 +87,7 @@ const fakeRequest = (value?: any, textLog: any = 'resolve / response fake API') 
     // имитация асинхронного запроса, задержка ответа 1сек, reject выходит рандомно , примерно 1 из 10 раз
     return new Promise((resolve, reject) => {
         setTimeout(() => {
-            // if (Math.random() > 0.9) {
-            //     return reject(uH1-storage Error('ОШИБКА СДЕЛАНА СПЕЦИАЛЬНО !!! ОБНОВИ СТРАНИЦУ ...'));
-            // } else {
-            //
-            // }
-            // console.log(textLog);
+
             resolve(value);
         }, 1000);
     });

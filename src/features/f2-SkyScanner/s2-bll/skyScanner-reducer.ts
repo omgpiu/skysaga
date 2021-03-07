@@ -42,10 +42,7 @@ const initialState = {
     ],
     Quotes: [] as QuoteType[],
     Carriers: [] as CarrierType[],
-    Places: [] as PlaceType[],
-
-    Tickets: [] as TicketType[]
-
+    departureDate: ''
 
 };
 
@@ -55,15 +52,21 @@ const scyScannerReducer = (state: InitialStateType = initialState, action: Actio
 
             return {
                 ...state,
-                // Quotes: [...state.Quotes, ...action.payload.Quotes],
-                // Carriers: [...state.Carriers, ...action.payload.Carriers],
-                // Places: [...state.Places, ...action.payload.Places],
-                Tickets: [
+                Quotes: action.payload.Quotes,
+                Carriers: action.payload.Carriers,
+            };
+        case 'SKY-SCANNER/SET_DEPARTURE_DATE':
 
-                    // places: [...action.payload.Places],
-                    // carriers: [...action.payload.Carriers],
-                    // quotes: [...action.payload.Quotes]
-                ]
+            return {
+                ...state,
+                departureDate: action.payload
+            };
+        case 'SKY_SCANNER/SET_EMPTY_LIST':
+
+            return {
+                ...state,
+                Quotes: [],
+                Carriers: []
             };
 
         default:
@@ -74,7 +77,12 @@ export const airTableActions = {
     setFlyData: (flyData: FlyDataType) => ({
         type: 'SKY_SCANNER/SET_FLY_DATA', payload: flyData
     } as const),
-
+    setDepartureDate: (date: string) => ({
+        type: 'SKY-SCANNER/SET_DEPARTURE_DATE', payload: date
+    } as const),
+    setEmptyList: () => ({
+        type: 'SKY_SCANNER/SET_EMPTY_LIST'
+    } as const)
 
 };
 type TicketType = {

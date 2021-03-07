@@ -109,7 +109,7 @@ export const Login = (props: PropsType) => {
                 </Form.Item>
 
             </Form>
-
+            <div className={st.backGround}></div>
         </>
     );
 };
