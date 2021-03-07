@@ -1,11 +1,20 @@
 .wrapper {
-    width: 680px;
-    height: 895px;
+    width: 100%;
+    background-color: #E5E5E5;
+    height: 100vh;
     display: flex;
     flex-direction: column;
-    background-color: white;
-    margin: 0 auto;
     justify-content: center;
     align-items: center;
+}
 
+.bodyWrapper {
+
+    width: 680px;
+    height: 895px;
+    /*left: 380px;*/
+
+    background: #FFFFFF;
+    box-shadow: 0px 4px 18px rgba(0, 0, 0, 0.25);
+    border-radius: 20px;
 }

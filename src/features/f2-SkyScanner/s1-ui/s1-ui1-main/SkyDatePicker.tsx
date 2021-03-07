@@ -13,11 +13,7 @@ export const SkyDatePicker = () => {
     const onChangeHandler = (date: any) => {
         debugger
         date && dispatch(airTableActions.setDepartureDate(moment(date).format('YYYY-MM-DD')));
-
-
     };
-
-
     return (
         <>
             <DatePicker bordered={false} defaultValue={moment()} locale={locale}

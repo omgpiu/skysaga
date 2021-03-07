@@ -9,8 +9,8 @@ const settings = {
     }
 };
 const instance = axios.create({
-    // baseURL: 'https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/browsequotes/v1.0/RU/RUB/RU/SVO-sky/JFK-sky/',
-    baseURL: 'https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/browsequotes/v1.0/US/USD/en-US/SFO-sky/JFK-sky/',
+    baseURL: 'https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/browsequotes/v1.0/RU/RUB/RU/SVO-sky/JFK-sky/',
+    // baseURL: 'https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/browsequotes/v1.0/US/USD/en-US/SFO-sky/JFK-sky/',
     ...settings
 });
 
@@ -70,7 +70,7 @@ export type QuoteType = {
 export type FlyDataType = {
     Carriers: CarrierType[]
     Quotes: QuoteType[]
-
+    Places: PlaceType[]
 
 }
 export type ResponseType<D = {}> = {

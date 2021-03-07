@@ -42,6 +42,7 @@ const initialState = {
     ],
     Quotes: [] as QuoteType[],
     Carriers: [] as CarrierType[],
+    Places: [] as PlaceType[],
     departureDate: ''
 
 };
@@ -54,6 +55,8 @@ const scyScannerReducer = (state: InitialStateType = initialState, action: Actio
                 ...state,
                 Quotes: action.payload.Quotes,
                 Carriers: action.payload.Carriers,
+                Places: action.payload.Places,
+
             };
         case 'SKY-SCANNER/SET_DEPARTURE_DATE':
 
@@ -66,7 +69,8 @@ const scyScannerReducer = (state: InitialStateType = initialState, action: Actio
             return {
                 ...state,
                 Quotes: [],
-                Carriers: []
+                Carriers: [],
+                Places: []
             };
 
         default:

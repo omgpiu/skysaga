@@ -21,6 +21,11 @@
 }
 
 .logo {
-    border: 1px solid black;
-    background-color: purple;
+    background-color: rgba(0, 119, 255, 0.05);
+    background-image: url('/src/assets/row/plane.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 50%;
+    width: 64px;
+    height: 64px;
 }

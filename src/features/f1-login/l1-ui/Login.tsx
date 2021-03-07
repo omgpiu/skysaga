@@ -13,11 +13,7 @@ export type PropsType = {
 
 export const Login = (props: PropsType) => {
     const dispatch = useDispatch();
-    // const [isAuth, setIsAuth] = useSessionStorage({
-    //     key: 'isAuth',
-    //     initialValue: 'login'
-    // });
-    // const error = useSelector(getError);
+
     const error = '';
 
 
@@ -45,9 +41,11 @@ export const Login = (props: PropsType) => {
         <>
             <Form onFinish={onSubmit}
                   className={st.loginForm}
-            >
-                <Form.Item
 
+            >
+                <div className={st.title}>Simple Flight Check</div>
+                <Form.Item
+                    className={st.form}
                     name="email"
                     {...error && {
                         help: error,
@@ -69,12 +67,14 @@ export const Login = (props: PropsType) => {
                            name="email"
                            placeholder="Email"
                         // onClick={resetError}
-                           className={st.inp}
+                           className={st.formInput}
+                        // bordered={false}
 
                     />
                 </Form.Item>
                 <Form.Item
-                    className={st.inp}
+                    className={st.form}
+
                     name="password"
                     {...error && {
                         help: error,
@@ -96,17 +96,20 @@ export const Login = (props: PropsType) => {
                         prefix={<LockOutlined className="site-form-item-icon"/>}
                         placeholder="Password"
                         iconRender={visible => (visible ? <EyeTwoTone/> : <EyeInvisibleOutlined/>)}
-                        // onClick={resetError}
+
+                        className={st.formInput}
                     />
                 </Form.Item>
+                <div className={st.buttonPosition}>
+                    <Form.Item>
+                        <Button type="primary" htmlType="submit" className={st.loginFormButton}
+                        >
+                            Войти
+                        </Button>
 
-                <Form.Item>
-                    <Button type="primary" htmlType="submit" className={st.loginFormButton}
-                    >
-                        Log in
-                    </Button>
+                    </Form.Item>
+                </div>
 
-                </Form.Item>
 
             </Form>
             <div className={st.backGround}></div>

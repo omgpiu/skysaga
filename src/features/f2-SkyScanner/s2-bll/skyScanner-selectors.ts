@@ -10,6 +10,9 @@ export const getQuotes = (state: AppRootStateType) => {
 export const getCarries = (state: AppRootStateType) => {
     return state.skyScanner.Carriers;
 };
+export const getPlaces = (state: AppRootStateType) => {
+    return state.skyScanner.Places;
+};
 
 export const getDepartureDate = (state: AppRootStateType) => {
     return state.skyScanner.departureDate;

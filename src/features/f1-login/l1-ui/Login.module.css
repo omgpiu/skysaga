@@ -4,34 +4,53 @@
     right: 0;
     margin: 0 auto;
     top: calc(40% - 169px);
-
-    border: 2px solid black;
     max-width: 28.3%;
     height: 33%;
-
-    background-color: white;
-    border-radius: 20px;
     z-index: 999;
-
-
+    background: #FFFFFF;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    border-radius: 20px;
+    min-width: 410px;
+    min-height: 338px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
-.loginFormForgot {
-    float: right;
+.form {
+    width: 345px;
+    box-sizing: border-box;
+    border-radius: 4px;
 }
 
-.antColRtl .loginFormForgot {
-    float: left;
+
+.buttonPosition{
+    position: relative;
+    width: 100%;
+    text-align: right;
+    right: 32px;
 }
 
 .loginFormButton {
-    width: 100px;
+    width: 116px;
+    height: 34px;
+    background: linear-gradient(104.34deg, #3C4CAD -15.34%, #00C3FF 145.95%);
+    box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.15);
+    border-radius: 4px;
 }
 
-/*.inp {*/
-/*    width: 200px;*/
-/*    height: 34px;*/
-/*}*/
+.loginFormButton:hover {
+    background: linear-gradient(104.34deg, #3C4CAD -15.34%, #00C3FF 145.95%);
+    box-shadow: 0px 0px 4px #99A0A3;
+}
+
+.loginFormButton:active {
+    background: linear-gradient(104.34deg, #5362BE -15.34%, #4AD5FF 145.95%);
+    border: 1.5px solid rgba(29, 138, 216, 0.3);
+    border-radius: 4px;
+}
+
 .wrapper {
     position: relative;
 }
@@ -39,12 +58,27 @@
 
 .backGround {
     background-image: url('/src/assets/background/Rectangle.png');
-    background-color: #cccccc;
+    /*background: rgba(255, 255, 255, 0.6);*/
     height: 100vh;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     width: 100%;
-    filter: blur(2px);
+    filter: blur(4px);
+
+}
+
+.title {
+    font-family: Roboto, serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 28px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: #424242;
+    height: 38px;
+    margin-bottom: 37px;
 
 }

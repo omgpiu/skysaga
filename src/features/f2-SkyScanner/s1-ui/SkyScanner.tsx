@@ -15,30 +15,26 @@ import {getDepartureDate} from '../s2-bll/skyScanner-selectors';
 const SkyScanner: React.FC<PropsType> = (props) => {
     const dispatch = useDispatch();
     const departureDate = useSelector(getDepartureDate);
-
-
     const onClickHandler = () => {
         props.setIsAuth(false);
     };
-
     const ClickHandler = () => {
         debugger
         dispatch(fetchData(departureDate));
     };
-
     if (!props.isAuth) {
-
         return <Redirect to={LOGIN}/>;
-
     }
-
     return (
         <div className={st.wrapper}>
-            <button onClick={onClickHandler}>Logout</button>
+            {/*<button onClick={onClickHandler}>Logout</button>*/}
             <button onClick={ClickHandler}>link</button>
-            <SkyScannerHeader/>
-            <PlacesCarousel/>
-            <SkyScannerBody/>
+            <div className={st.bodyWrapper}>
+                <SkyScannerHeader/>
+                <PlacesCarousel/>
+                <SkyScannerBody/>
+            </div>
+
 
         </div>
     );

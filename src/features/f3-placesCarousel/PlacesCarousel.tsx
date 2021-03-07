@@ -11,8 +11,8 @@ export const PlacesCarousel = () => {
     const slides = useSelector(getSlides);
 
 
-    return <div style={{width: '600px'}}>
-        <Carousel autoplay slidesToShow={4}
+    return <>
+        <Carousel autoplay slidesToShow={3}
                   dots={false}>
 
 
@@ -23,5 +23,5 @@ export const PlacesCarousel = () => {
         </Carousel>
 
 
-    </div>;
+    </>;
 };
