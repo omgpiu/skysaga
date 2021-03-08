@@ -1,52 +1,35 @@
 import {Button, Form, Input} from 'antd';
 import {EyeInvisibleOutlined, EyeTwoTone, LockOutlined, UserOutlined} from '@ant-design/icons';
 import st from './Login.module.css';
-import React from 'react';
+import React, {useCallback} from 'react';
 import {Redirect} from 'react-router-dom';
-import {SKY_SCANNER} from '../../../common/c1-routes/Routes';
-import {useDispatch} from 'react-redux';
+import {PropsType, SKY_SCANNER} from '../../../common/c1-routes/Routes';
+import style from '../../../App.module.scss';
 
-export type PropsType = {
-    isAuth: boolean | null
-    setIsAuth: (value: boolean) => void
-}
 
-export const Login = (props: PropsType) => {
-    const dispatch = useDispatch();
 
+export const Login: React.FC<PropsType> = React.memo(({isAuth, setIsAuth,}) => {
     const error = '';
-
-
-    const onSubmit = (values: {
+    const onSubmit = useCallback((values: {
         email: string,
         password: string,
     }) => {
-        console.log(values);
-        props.setIsAuth(true);
-        // dispatch(authActions.setAuthUserData(values.email, values.password, true));
-        // await dispatch(login(values));
+        setIsAuth(true);
+    }, [isAuth]);
 
-    };
-
-    // const resetError = () => {
-    //     // dispatch(setError({error: ''}));
-    // };
-
-
-    if (props.isAuth) {
+    if (isAuth) {
         return <Redirect to={SKY_SCANNER}/>;
 
     }
     return (
         <>
             <Form onFinish={onSubmit}
-                  className={st.loginForm}
-
+                  className={st.login_form_wrapper}
             >
-                <div className={st.title}>Simple Flight Check</div>
+                <div className={st.login_form_title}>Simple Flight Check</div>
                 <div>
                     <Form.Item
-                        className={st.form}
+                        className={st.form_item}
                         name="email"
                         {...error && {
                             help: error,
@@ -63,19 +46,14 @@ export const Login = (props: PropsType) => {
                             },
                         ]}
                     >
-                        <Input prefix={<UserOutlined className="site-form-item-icon"/>}
+                        <Input prefix={<UserOutlined/>}
                                type="email"
                                name="email"
                                placeholder="Email"
-                            // onClick={resetError}
-                               className={st.formInput}
-                            // bordered={false}
-
                         />
                     </Form.Item>
                     <Form.Item
-                        className={st.form}
-
+                        className={st.form_item}
                         name="password"
                         {...error && {
                             help: error,
@@ -94,28 +72,26 @@ export const Login = (props: PropsType) => {
                         ]}
                     >
                         <Input.Password
-                            prefix={<LockOutlined className="site-form-item-icon"/>}
+                            prefix={<LockOutlined/>}
                             placeholder="Password"
                             iconRender={visible => (visible ? <EyeTwoTone/> : <EyeInvisibleOutlined/>)}
 
-                            className={st.formInput}
                         />
                     </Form.Item>
-                    <div className={st.buttonPosition}>
+                    <div className={st.button_form_position}>
                         <Form.Item>
-                            <Button type="primary" htmlType="submit" className={st.loginFormButton}
+                            <Button type="primary" htmlType="submit" className={style.main_button}
                             >
                                 Войти
                             </Button>
-
                         </Form.Item>
                     </div>
 
                 </div>
             </Form>
-            <div className={st.backGround}></div>
+            <div className={style.backGround}></div>
         </>
     );
-};
+});
 
 

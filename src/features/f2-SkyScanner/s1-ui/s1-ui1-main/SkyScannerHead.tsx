@@ -1,6 +1,6 @@
 import React from 'react';
 import {SkyDatePicker} from './SkyDatePicker';
-import st from './SkyScannerHead.module.css';
+import st from './SkyScannerHead.module.scss';
 import vector from '../../../../assets/row/Vector.png';
 
 export const SkyScannerHeader = () => {

@@ -18,7 +18,6 @@ const loginReducer = (state: InitialStateType = initialState, action: ActionsTyp
             return {
                 ...state,
                 ...action.payload
-
             };
         default:
             return state;
@@ -35,7 +34,6 @@ export const authActions = {
 };
 
 type  InitialStateType = typeof initialState
-
 type ActionsType = InferActionsTypes<typeof authActions>
 
 

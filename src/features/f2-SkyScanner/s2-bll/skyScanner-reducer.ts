@@ -44,7 +44,8 @@ const initialState = {
     Carriers: [] as CarrierType[],
     Places: [] as PlaceType[],
     departureDate: '',
-    favorites: [] as TicketType[]
+    favorites: [] as TicketType[],
+    error: ''
 
 };
 
@@ -75,6 +76,11 @@ const scyScannerReducer = (state: InitialStateType = initialState, action: Actio
                 ...state,
                 favorites: [...state.favorites.filter(e => action.payload.QuoteId !== e.QuoteId)]
             };
+        case 'SKY_SCANNER/SET_ERROR':
+            return {
+                ...state,
+                error: action.payload
+            };
         default:
             return state;
     }
@@ -92,11 +98,15 @@ export const airTableActions = {
     unfollowFavorite: (favorite: TicketType) => ({
         type: 'SKY_SCANNER/UNFOLLOW_FAVORITE', payload: favorite
     } as const),
-
+    setError: (error: string) => ({
+        type: 'SKY_SCANNER/SET_ERROR', payload: error
+    } as const),
 };
+
+
 type TicketType = {
     QuoteId: number
-    company: string  | undefined
+    company: string | undefined
     price: number
 }
 type  InitialStateType = typeof initialState

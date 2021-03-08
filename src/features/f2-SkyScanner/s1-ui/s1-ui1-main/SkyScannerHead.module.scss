@@ -1,0 +1,27 @@
+@import './src/App.module';
+
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 29px;
+}
+
+.datePickerText input {
+  @include fonts(normal, 600, 25px, 22px, -0.408px, #1157A7);
+  display: flex;
+  align-items: center;
+  text-align: right;
+}
+
+.datePickerIcon {
+  font-size: 22px;
+  color: #1157A7
+}
+.text {
+  @include fonts(normal, 500, 32px, 37px, normal, #424242);
+  min-width: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}

@@ -1,0 +1,75 @@
+.ticket_container {
+    height: 101px;
+    display: flex;
+    min-width: 300px;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    box-sizing: content-box;
+}
+
+.ticket_container::after {
+    box-sizing: content-box;
+    width: 99%;
+    content: '';
+    display: block;
+    height: 1px;
+    background: rgba(135, 135, 135, 0.2);
+    border-radius: 8px;
+    transform: matrix(1, 0, 0, -1, 0, 0);
+}
+
+.border {
+    display: inline-block;
+    margin: 0;
+    position: relative;
+}
+
+.ticket_info {
+    flex-basis: 50%;
+    min-width: 301px;
+
+}
+
+
+.ticket_logo {
+    background-color: rgba(0, 119, 255, 0.05);
+    background-image: url('/src/assets/row/plane.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 50%;
+    width: 64px;
+    height: 64px;
+}
+
+.ticket_info_arrow {
+    margin-left: 12px;
+    margin-right: 12px
+}
+
+.favorite {
+    padding-bottom: 16px
+}
+
+.price {
+    flex-basis: 25%;
+    margin-right: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    transition: all 0.4s;
+    min-height: 50px;
+}
+
+.price_block {
+    display: flex;
+    width: 100px;
+    justify-content: space-around;
+    align-items: center
+}
+.heartSize{
+    width:23px ;
+    height: 20px;
+}
+
+

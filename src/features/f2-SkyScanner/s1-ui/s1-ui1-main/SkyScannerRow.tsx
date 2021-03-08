@@ -1,5 +1,5 @@
 import React from 'react';
-import st from './ScySkannerRow.module.css';
+import st from './SkySkannerRow.module.css';
 import moment from 'moment';
 import {useDispatch} from 'react-redux';
 import getSymbolFromCurrency from 'currency-symbol-map';
@@ -9,10 +9,11 @@ import heart from '../../../../assets/row/heart.png';
 import redHeart from '../../../../assets/row/redHeart.png';
 import arrow from '../../../../assets/row/arrow.png';
 import dash from '../../../../assets/row/dash.png';
+import style from '../../../../App.module.scss';
 
 type PropsType = {
     company: string | undefined
-    date: string
+    time: string
     price: number
     departureDate: string
     departureCity: string
@@ -24,11 +25,11 @@ type PropsType = {
 }
 
 
-export const SkyScannerRow: React.FC<PropsType> = (props) => {
+export const SkyScannerRow: React.FC<PropsType> = React.memo((props) => {
     const {
         ticket,
         company,
-        date,
+        time,
         price,
         departureDate,
         departureCity,
@@ -52,38 +53,38 @@ export const SkyScannerRow: React.FC<PropsType> = (props) => {
     };
 
     return (
-        <div className={st.wrapper}>
-            <div className={st.logo}></div>
-            <div className={st.info}>
-                <div className={st.info_text}>
+        <div className={st.ticket_container}>
+            <div className={st.ticket_logo}></div>
+            <div className={st.ticket_info}>
+                <div className={style.ticket_font_info}>
                     {departureCity} ({departureIataCode})
-                    <img src={arrow} alt="arrow" style={{marginLeft: '12px', marginRight: '12px'}}/>
+                    <img src={arrow} alt="arrow" className={st.ticket_info_arrow}/>
                     {arrivalCity} ({arrivalIataCode})
                 </div>
-                <div className={st.info_text_date}>
+                <div className={style.info_text_date}>
                     {
                         moment(departureDate).format('LL')
-                    } <img src={dash} alt=""/> {moment(ticket.QuoteDateTime).format('HH : mm')}
+                    } <img src={dash} alt=""/> {moment(time).format('HH : mm')}
                 </div>
-                <div className={st.info_text_date}>
+                <div className={style.info_text_date}>
                     {company}
                 </div>
             </div>
             <div className={st.price}>
-                <div style={{paddingBottom: '16px'}}>
+                <div className={st.favorite}>
                     {!isFavorite ?
-                        <img src={heart} alt="heart" onClick={followHandler} width={23} height={20}/> :
-                        <img src={redHeart} alt="red_heart" width={23} height={20} onClick={unfollowHandler}/>}
+                        <img src={heart} alt="heart" onClick={followHandler} className={st.heartSize}/> :
+                        <img src={redHeart} alt="red_heart" className={st.heartSize} onClick={unfollowHandler}/>}
                 </div>
-                <div style={{display: 'flex', width: '100px', justifyContent: 'space-around', alignItems: 'center'}}>
+                <div className={st.price_block}>
                     <span
-                        className={st.price_title}>Price:</span><span
-                    className={st.price_amount}>{price}</span><span
-                    className={st.price_amount}>{getSymbolFromCurrency('RUB')}</span>
+                        className={style.price_title}>Price:</span><span
+                    className={style.price_amount}>{price}</span><span
+                    className={style.price_amount}>{getSymbolFromCurrency('RUB')}</span>
                 </div>
             </div>
         </div>
 
 
     );
-};
+});

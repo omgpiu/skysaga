@@ -30,3 +30,7 @@ export const Routes = () => {
     </>;
 };
 
+export type PropsType = {
+    isAuth: boolean | null
+    setIsAuth: (value: boolean) => void
+}

@@ -1,5 +1,4 @@
-.wrapper {
-    /*min-width: 100%;*/
+.sky_scanner_wrapper {
     max-width: 100%;
     background-color: #E5E5E5;
     height: 100vh;
@@ -9,7 +8,7 @@
     align-items: center;
 }
 
-.bodyWrapper {
+.sky_scanner_skeleton {
     margin-top: 17px;
     width: 680px;
     height: 895px;
@@ -22,7 +21,7 @@
     border-radius: 20px;
 }
 
-.logoutButton {
+.logout_btn {
     border: none;
     background-color: #E5E5E5;
     box-shadow: none;
@@ -34,17 +33,17 @@
     line-height: 22px;
 }
 
-.logoutButton:hover {
+.logout_btn:hover {
     background-color: #E5E5E5;
     color: #1157A7;
 }
 
-.logoutButtonWrapper {
+.logout_bnt_position {
     padding-left: 1241px;
     padding-top: 20px;
 }
 
-.logoutButtonLogo {
+.logout_btn_logo {
     color: #1157A7;
     padding-left: 10px;
 }

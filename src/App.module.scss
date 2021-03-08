@@ -1,0 +1,64 @@
+@mixin fonts($fontStyle,$fontWeight,$fontSize,$lineHeight,$letterSpacing,$color) {
+  font-style: $fontStyle;
+  font-weight: $fontWeight;
+  font-size: $fontSize;
+  line-height: $lineHeight;
+  letter-spacing: $letterSpacing,;
+  color: $color;
+}
+
+
+.backGround {
+  background-image: url('/assets/background/Rectangle.png');
+  background-color: #cccccc;
+  height: 100vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  width: 100%;
+  filter: blur(4px);
+}
+
+.main_button {
+  width: 116px;
+  height: 34px;
+  background: linear-gradient(104.34deg, #3C4CAD -15.34%, #00C3FF 145.95%);
+  box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.15);
+  border-radius: 4px;
+}
+
+.main_button:hover {
+  background: linear-gradient(104.34deg, #3C4CAD -15.34%, #00C3FF 145.95%);
+  box-shadow: 0px 0px 4px #99A0A3;
+}
+
+.main_button:active, .main_button:focus {
+  background: linear-gradient(104.34deg, #5362BE -15.34%, #4AD5FF 145.95%);
+  border: 1.5px solid rgba(29, 138, 216, 0.3);
+  border-radius: 4px;
+}
+
+.ticket_font_info {
+  @include fonts(normal, 300, 17px, 22px, -0.408px, #424242);
+}
+
+.price_amount {
+  @include fonts(normal, normal, 17px, 22px, -0.408px, #424242);
+}
+
+.info_text_date {
+  @include fonts(normal, normal, 14px, 22px, -0.408px, #878787);
+}
+
+.price_title {
+  @include fonts(normal, 300, 11px, 22px, -0.408px, #878787);
+}
+
+.path_text {
+  @include fonts(normal, 500, 32px, 37px, normal, #424242);
+  min-width: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}

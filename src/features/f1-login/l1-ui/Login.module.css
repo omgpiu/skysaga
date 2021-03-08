@@ -1,4 +1,4 @@
-.loginForm {
+.login_form_wrapper {
     position: absolute;
     left: 0;
     right: 0;
@@ -18,14 +18,14 @@
     align-items: center;
 }
 
-.form {
+.form_item {
     width: 345px;
     box-sizing: border-box;
     border-radius: 4px;
 }
 
 
-.buttonPosition {
+.button_form_position {
     width: 100%;
     text-align: right;
     right: 32px;
@@ -33,44 +33,8 @@
 
 }
 
-.loginFormButton {
-    width: 116px;
-    height: 34px;
-    background: linear-gradient(104.34deg, #3C4CAD -15.34%, #00C3FF 145.95%);
-    box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.15);
-    border-radius: 4px;
-}
 
-.loginFormButton:hover {
-    background: linear-gradient(104.34deg, #3C4CAD -15.34%, #00C3FF 145.95%);
-    box-shadow: 0px 0px 4px #99A0A3;
-}
-
-.loginFormButton:active {
-    background: linear-gradient(104.34deg, #5362BE -15.34%, #4AD5FF 145.95%);
-    border: 1.5px solid rgba(29, 138, 216, 0.3);
-    border-radius: 4px;
-}
-
-.wrapper {
-    position: relative;
-}
-
-
-.backGround {
-    background-image: url('/src/assets/background/Rectangle.png');
-    /*background: rgba(255, 255, 255, 0.6);*/
-    height: 100vh;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    width: 100%;
-    filter: blur(4px);
-
-}
-
-.title {
-    /*font-family: 'Roboto', sans-serif;*/
+.login_form_title {
     font-style: normal;
     font-weight: 500;
     font-size: 24px;
@@ -81,5 +45,4 @@
     color: #424242;
     height: 38px;
     margin-bottom: 37px;
-
 }

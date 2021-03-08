@@ -4,7 +4,7 @@ import 'moment/locale/ru';
 import moment from 'moment';
 import {useDispatch} from 'react-redux';
 import {airTableActions} from '../../s2-bll/skyScanner-reducer';
-import st from './SkyScannerHead.module.css';
+import st from './SkyScannerHead.module.scss';
 import {CalendarOutlined} from '@ant-design/icons';
 
 

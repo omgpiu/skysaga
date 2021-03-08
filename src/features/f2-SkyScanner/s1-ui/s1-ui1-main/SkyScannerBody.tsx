@@ -44,7 +44,7 @@ export const SkyScannerBody = () => {
 
         return (
             <SkyScannerRow key={1 + index + e.QuoteId} price={e.MinPrice} company={company}
-                           date={e.QuoteDateTime}
+                           time={e.QuoteDateTime}
                            departureDate={e.OutboundLeg.DepartureDate}
                            arrivalCity={arrivalCity}
                            arrivalIataCode={arrivalIataCode}
