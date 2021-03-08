@@ -13,16 +13,17 @@ export const SkyDatePicker = () => {
     const dispatch = useDispatch();
 
     const onChangeHandler = (date: any) => {
-        date && dispatch(airTableActions.setDepartureDate(moment(date).format('YYYY-MM-DD')));
+        date && dispatch(airTableActions.setDepartureDate(moment(date).format('YYYY-MM')));
     };
     return (
         <>
             <DatePicker bordered={false} defaultValue={moment()} locale={locale}
-                        format={'LL'}
+                        format={'MMMM YYYY'}
                         onChange={onChangeHandler}
                         className={st.datePickerText}
                         suffixIcon={<CalendarOutlined className={st.datePickerIcon}/>}
                         clearIcon={true}
+                        picker={'month'}
 
 
             />

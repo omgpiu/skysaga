@@ -1,6 +1,5 @@
 .wrapper {
     height: 101px;
-    /*border: 1px solid black;*/
     display: flex;
     min-width: 300px;
     justify-content: space-between;
@@ -29,26 +28,55 @@
 }
 
 .info {
-    flex-basis:50%;
-    /*flex-grow:3;*/
-    border: 1px solid black;
-    background-color: greenyellow;
+    flex-basis: 50%;
+    min-width: 301px;
 
 }
 
+.info_text {
+    font-style: normal;
+    font-weight: 300;
+    font-size: 17px;
+    line-height: 22px;
+    letter-spacing: -0.408px;
+    color: #424242;
+}
+.price_amount{
+    font-style: normal;
+    font-weight: normal;
+    font-size: 17px;
+    line-height: 22px;
+    letter-spacing: -0.408px;
+    color: #424242;
+}
+
+
+.info_text_date {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 22px;
+    letter-spacing: -0.408px;
+    color: #878787;
+}
+
 .price {
-    flex-basis:25%;
-    /*flex-grow: 2;*/
-    border: 1px solid black;
-    background-color: yellow;
+    flex-basis: 25%;
     margin-right: 10px;
     display: flex;
     flex-direction: column;
     align-items: flex-end;
+    transition: all 0.4s;
+    min-height: 50px ;
 }
-
+.price_title {
+    font-weight: 300;
+    font-size: 11px;
+    line-height: 22px;
+    letter-spacing: -0.408px;
+    color: #878787;
+}
 .logo {
-    /*flex-grow: 1;*/
     background-color: rgba(0, 119, 255, 0.05);
     background-image: url('/src/assets/row/plane.png');
     background-repeat: no-repeat;

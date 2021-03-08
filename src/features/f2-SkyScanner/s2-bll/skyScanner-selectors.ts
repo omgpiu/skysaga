@@ -20,3 +20,4 @@ export const getDepartureDate = (state: AppRootStateType) => {
 export const getFavorite = (state: AppRootStateType) => {
     return state.skyScanner.favorites;
 };
+

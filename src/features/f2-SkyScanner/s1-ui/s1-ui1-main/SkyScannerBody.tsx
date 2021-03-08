@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {SkyScannerRow} from './SkyScannerRow';
 import {useSelector} from 'react-redux';
 import {getCarries, getFavorite, getPlaces, getQuotes} from '../../s2-bll/skyScanner-selectors';
@@ -9,10 +9,9 @@ export const SkyScannerBody = () => {
     const carriers = useSelector(getCarries);
     const places = useSelector(getPlaces);
     const favorites = useSelector(getFavorite);
-    const [count, setCount] = useState(0);
 
     const flights = () => {
-        switch (count) {
+        switch (favorites.length) {
             case 1: {
                 return '  рейс';
             }
@@ -25,11 +24,9 @@ export const SkyScannerBody = () => {
                 return '  рейсов';
         }
     };
-    const onClickHandler = () => {
-        setCount(() => count + 1);
-    };
+
     const addToFavorite = <div className={st.favoriteText}>Добавлено в Избранное: <span
-        className={st.count}>{count}</span>
+        className={st.count}>{favorites.length}</span>
         <span>{flights()}</span></div>;
 
     if (!places.length) {
@@ -53,7 +50,6 @@ export const SkyScannerBody = () => {
                            arrivalIataCode={arrivalIataCode}
                            departureCity={departureCity}
                            departureIataCode={departureIataCode}
-                           addToFavorite={onClickHandler}
                            isFavorite={isFavorite ? isFavorite : false}
                            ticket={e}
 

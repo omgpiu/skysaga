@@ -96,7 +96,7 @@ export const airTableActions = {
 };
 type TicketType = {
     QuoteId: number
-    company: string
+    company: string  | undefined
     price: number
 }
 type  InitialStateType = typeof initialState
