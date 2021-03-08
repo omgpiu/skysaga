@@ -6,11 +6,18 @@ import {useDispatch} from 'react-redux';
 import {airTableActions} from '../../s2-bll/skyScanner-reducer';
 import st from './SkyScannerHead.module.scss';
 import {CalendarOutlined} from '@ant-design/icons';
+import {useEffect} from 'react';
 
 
 export const SkyDatePicker = () => {
 
     const dispatch = useDispatch();
+
+
+    useEffect(() => {
+        dispatch(airTableActions.setDepartureDate(moment().format('YYYY-MM')));
+    }, []);
+
 
     const onChangeHandler = (date: any) => {
         date && dispatch(airTableActions.setDepartureDate(moment(date).format('YYYY-MM')));

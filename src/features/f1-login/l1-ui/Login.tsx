@@ -1,11 +1,10 @@
 import {Button, Form, Input} from 'antd';
 import {EyeInvisibleOutlined, EyeTwoTone, LockOutlined, UserOutlined} from '@ant-design/icons';
-import st from './Login.module.css';
+import st from './Login.module.scss';
 import React, {useCallback} from 'react';
 import {Redirect} from 'react-router-dom';
 import {PropsType, SKY_SCANNER} from '../../../common/c1-routes/Routes';
-import style from '../../../App.module.scss';
-
+import style from '../../../main/m1-ui/App.module.scss';
 
 
 export const Login: React.FC<PropsType> = React.memo(({isAuth, setIsAuth,}) => {
@@ -15,7 +14,7 @@ export const Login: React.FC<PropsType> = React.memo(({isAuth, setIsAuth,}) => {
         password: string,
     }) => {
         setIsAuth(true);
-    }, [isAuth]);
+    }, [setIsAuth]);
 
     if (isAuth) {
         return <Redirect to={SKY_SCANNER}/>;

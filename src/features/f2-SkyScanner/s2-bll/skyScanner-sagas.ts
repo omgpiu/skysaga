@@ -1,23 +1,17 @@
 import {call, put, takeEvery} from 'redux-saga/effects';
-import {CarrierType, CurrencieType, PlaceType, QuoteType, skyScannerAPI} from '../../../main/m3-dal/mainAPI';
+import {FlyDataType, skyScannerAPI} from '../../../main/m3-dal/mainAPI';
 import {airTableActions} from './skyScanner-reducer';
 
-export type FlyDataType = {
-    Carriers: CarrierType[]
-    Places: PlaceType[]
-    Currencies: CurrencieType[]
-    Quotes: QuoteType[]
-
-
-}
-
-export function* fetchFlyData(action: ReturnType<typeof fetchData>): any {
-
+export function* fetchFlyData(action: ReturnType<typeof fetchData>) {
+    yield put(airTableActions.setIsInitialized(false));
     try {
-        const res = yield call(skyScannerAPI.getTickets, action.flyDate);
+        const res: FlyDataType = yield call(skyScannerAPI.getTickets, action.flyDate);
         yield put(airTableActions.setFlyData(res));
+        yield put(airTableActions.setIsInitialized(true));
     } catch (e) {
-        yield put(airTableActions.setError(e));
+        yield put(airTableActions.setError('Some error with server.Try one more time or change date'));
+        console.log(e);
+        yield put(airTableActions.setIsInitialized(true));
     }
 }
 

@@ -20,4 +20,6 @@ export const getDepartureDate = (state: AppRootStateType) => {
 export const getFavorite = (state: AppRootStateType) => {
     return state.skyScanner.favorites;
 };
-
+export const getIsInitialized = (state: AppRootStateType) => {
+    return state.skyScanner.isInitialized;
+};

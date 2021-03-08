@@ -1,4 +1,4 @@
-@import './src/App.module';
+@import "src/main/m1-ui/App.module";
 
 .wrapper {
   display: flex;
@@ -18,6 +18,7 @@
   font-size: 22px;
   color: #1157A7
 }
+
 .text {
   @include fonts(normal, 500, 32px, 37px, normal, #424242);
   min-width: 300px;

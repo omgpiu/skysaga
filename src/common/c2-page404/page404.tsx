@@ -1,7 +1,7 @@
 import {Button, Result} from 'antd';
 import React from 'react';
 import {Link} from 'react-router-dom';
-import style from '../../App.module.scss';
+import style from '../../main/m1-ui/App.module.scss';
 
 export const Page404: React.FC = () => {
     return (

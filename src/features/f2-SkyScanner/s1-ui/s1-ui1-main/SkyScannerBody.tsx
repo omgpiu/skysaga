@@ -1,24 +1,43 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {SkyScannerRow} from './SkyScannerRow';
-import {useSelector} from 'react-redux';
-import {getCarries, getFavorite, getPlaces, getQuotes} from '../../s2-bll/skyScanner-selectors';
-import st from './SkyScannerBody.module.css';
+import {useDispatch, useSelector} from 'react-redux';
+import {
+    getCarries,
+    getDepartureDate,
+    getFavorite,
+    getIsInitialized,
+    getPlaces,
+    getQuotes
+} from '../../s2-bll/skyScanner-selectors';
+import st from './SkyScannerBody.module.scss';
+import {Loader} from '../../../../utils/Spin/Spin';
+import {EmptyList} from '../../../../utils/Empty/Empty';
+import {fetchData} from '../../s2-bll/skyScanner-sagas';
 
 export const SkyScannerBody = () => {
+    const dispatch = useDispatch();
     const quotes = useSelector(getQuotes);
     const carriers = useSelector(getCarries);
     const places = useSelector(getPlaces);
     const favorites = useSelector(getFavorite);
+    const isInitialized = useSelector(getIsInitialized);
+    const departureDate = useSelector(getDepartureDate);
+
+
+    useEffect(() => {
+        dispatch(fetchData(departureDate));
+    }, [dispatch,departureDate]);
+
 
     const flights = () => {
         switch (favorites.length) {
             case 1: {
-                return '  рейс';
+                return '  рейс  ';
             }
             case (2):
             case (3):
             case (4): {
-                return '  рейса';
+                return '  рейса ';
             }
             default:
                 return '  рейсов';
@@ -30,7 +49,8 @@ export const SkyScannerBody = () => {
         <span>{flights()}</span></div>;
 
     if (!places.length) {
-        return addToFavorite;
+
+        return <EmptyList/>;
     }
     let departureCity = places[1].CityName;
     let departureIataCode = places[1].IataCode;
@@ -59,8 +79,9 @@ export const SkyScannerBody = () => {
     return <>
         {addToFavorite}
         <div className={st.scrollBlock}>
-
-
+            {!isInitialized ? <div className={st.loader}>
+                <Loader/>
+            </div> : null}
             {tickets}
         </div>
     </>;

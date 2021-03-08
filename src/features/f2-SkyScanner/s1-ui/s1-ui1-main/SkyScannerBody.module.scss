@@ -1,0 +1,66 @@
+@import "src/main/m1-ui/App.module";
+
+
+.bodyWrapper {
+  margin: 0 auto;
+  width: 680px;
+  height: 100%;
+  box-sizing: border-box;
+  left: 380px;
+  top: 69px;
+  background: #FFFFFF;
+  box-shadow: 0px 4px 18px rgba(0, 0, 0, 0.25);
+  border-radius: 20px;
+}
+
+
+.favoriteText {
+  @include fonts(normal, 300, 17px, 1, -0.408px, #424242);
+  display: flex;
+  max-width: 290px;
+  justify-content: space-between;
+  padding-bottom: 21px;
+}
+
+.count {
+  color: #1157A7;
+
+  width: 20px;
+}
+
+.scrollBlock {
+  box-sizing: border-box;
+  padding-left: 11px;
+  height: 515px;
+  width: 100%;
+  overflow-y: scroll;
+  border-right: 1px solid #E7E7E7;
+  border-radius: 2px
+}
+
+.scrollBlock::-webkit-scrollbar-track {
+
+  border-radius: 2px;
+}
+
+.scrollBlock::-webkit-scrollbar {
+  width: 2px;
+}
+
+.scrollBlock::-webkit-scrollbar-thumb {
+  border-radius: 4px;
+  background: #f0f2f5;
+}
+
+.scrollBlock:hover::-webkit-scrollbar-thumb {
+  background: #1157A7;
+}
+
+.loader {
+  position: sticky;
+  top: 38%;
+  height: 1px;
+  padding-left: 48%
+}
+
+

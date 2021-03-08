@@ -15,14 +15,12 @@ const instance = axios.create({
 });
 
 export const skyScannerAPI = {
-    // flyDate
     getTickets(flyDate: string): Promise<FlyDataType> {
         return instance.get<FlyDataType>(flyDate).then(res => {
             return res.data;
         });
     }
 };
-// '2021-09-01'
 
 export type CarrierType = {
     CarrierId: number
@@ -39,18 +37,8 @@ export type PlaceType = {
     Type: string
 
 }
-export type CurrencieType = {
-    Code: string
-    DecimalDigits: number
-    DecimalSeparator: string
-    RoundingCoefficient: number
-    SpaceBetweenAmountAndSymbol: boolean
-    Symbol: symbol
-    SymbolOnLeft: boolean
-    ThousandsSeparator: string
-}
-type OutboundLegType = {
 
+type OutboundLegType = {
     DepartureDate: string
     DestinationId: number
     OriginId: number
@@ -64,32 +52,9 @@ export type QuoteType = {
     QuoteDateTime: string
 }
 
-
 export type FlyDataType = {
     Carriers: CarrierType[]
     Quotes: QuoteType[]
     Places: PlaceType[]
-
 }
 
-
-const fakeRequest = (value?: any, textLog: any = 'resolve / response fake API') => {
-    // имитация асинхронного запроса, задержка ответа 1сек, reject выходит рандомно , примерно 1 из 10 раз
-    return new Promise((resolve, reject) => {
-        setTimeout(() => {
-
-            resolve(value);
-        }, 1000);
-    });
-};
-export const authAPI = {
-    authMe() {
-        return fakeRequest();
-    },
-    login(param: any) {
-        return fakeRequest(param, 'login succeed');
-    },
-    logout() {
-        return fakeRequest('logout succeed');
-    },
-};

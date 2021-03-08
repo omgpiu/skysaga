@@ -9,7 +9,7 @@ import heart from '../../../../assets/row/heart.png';
 import redHeart from '../../../../assets/row/redHeart.png';
 import arrow from '../../../../assets/row/arrow.png';
 import dash from '../../../../assets/row/dash.png';
-import style from '../../../../App.module.scss';
+import style from '../../../../main/m1-ui/App.module.scss';
 
 type PropsType = {
     company: string | undefined
@@ -39,6 +39,7 @@ export const SkyScannerRow: React.FC<PropsType> = React.memo((props) => {
         isFavorite
     } = props;
     const dispatch = useDispatch();
+
     const followHandler = () => {
         dispatch(airTableActions.followFavorite({
             QuoteId: ticket.QuoteId,

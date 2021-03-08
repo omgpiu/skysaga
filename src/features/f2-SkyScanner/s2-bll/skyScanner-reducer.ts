@@ -45,20 +45,18 @@ const initialState = {
     Places: [] as PlaceType[],
     departureDate: '',
     favorites: [] as TicketType[],
-    error: ''
+    error: '',
+    isInitialized: false
 
 };
-
 const scyScannerReducer = (state: InitialStateType = initialState, action: ActionsType): InitialStateType => {
     switch (action.type) {
         case 'SKY_SCANNER/SET_FLY_DATA':
-
             return {
                 ...state,
                 Quotes: action.payload.Quotes,
                 Carriers: action.payload.Carriers,
                 Places: action.payload.Places,
-
             };
         case 'SKY-SCANNER/SET_DEPARTURE_DATE':
             return {
@@ -81,6 +79,11 @@ const scyScannerReducer = (state: InitialStateType = initialState, action: Actio
                 ...state,
                 error: action.payload
             };
+        case 'SKY_SCANNER/STATUS':
+            return {
+                ...state,
+                isInitialized: action.payload
+            };
         default:
             return state;
     }
@@ -101,14 +104,17 @@ export const airTableActions = {
     setError: (error: string) => ({
         type: 'SKY_SCANNER/SET_ERROR', payload: error
     } as const),
+    setIsInitialized: (isInitialized: boolean) => ({
+        type: 'SKY_SCANNER/STATUS', payload: isInitialized
+    } as const)
 };
-
 
 type TicketType = {
     QuoteId: number
     company: string | undefined
     price: number
 }
+
 type  InitialStateType = typeof initialState
 type ActionsType = InferActionsTypes<typeof airTableActions>
 export default scyScannerReducer;
