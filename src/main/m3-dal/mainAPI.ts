@@ -15,8 +15,8 @@ const instance = axios.create({
 });
 
 export const skyScannerAPI = {
-    getTickets(flyDate: string): Promise<FlyDataType> {
-        return instance.get<FlyDataType>(flyDate).then(res => {
+    getTickets(flyDate: string) {
+        return instance.get(flyDate).then(res => {
             return res.data;
         });
     }

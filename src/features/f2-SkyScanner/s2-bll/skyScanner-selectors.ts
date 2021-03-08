@@ -23,3 +23,6 @@ export const getFavorite = (state: AppRootStateType) => {
 export const getIsInitialized = (state: AppRootStateType) => {
     return state.skyScanner.isInitialized;
 };
+export const getError = (state: AppRootStateType) => {
+    return state.skyScanner.error;
+};

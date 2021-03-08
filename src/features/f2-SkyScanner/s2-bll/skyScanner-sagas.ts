@@ -8,9 +8,9 @@ export function* fetchFlyData(action: ReturnType<typeof fetchData>) {
         const res: FlyDataType = yield call(skyScannerAPI.getTickets, action.flyDate);
         yield put(airTableActions.setFlyData(res));
         yield put(airTableActions.setIsInitialized(true));
+
     } catch (e) {
         yield put(airTableActions.setError('Some error with server.Try one more time or change date'));
-        console.log(e);
         yield put(airTableActions.setIsInitialized(true));
     }
 }

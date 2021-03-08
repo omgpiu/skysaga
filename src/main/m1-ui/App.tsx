@@ -6,11 +6,8 @@ function App() {
 
     return (
         <>
-
             <Routes/>
         </>
-
-
     );
 }
 

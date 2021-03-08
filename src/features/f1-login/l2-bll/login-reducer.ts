@@ -4,7 +4,6 @@ const initialState = {
     email: null as string | null,
     login: null as string | null,
     isAuth: false,
-    error: ''
 
 };
 
@@ -14,11 +13,7 @@ const loginReducer = (state: InitialStateType = initialState, action: ActionsTyp
             return {
                 ...state, ...action.payload
             };
-        case  'AUTH/SET_ERROR' :
-            return {
-                ...state,
-                ...action.payload
-            };
+
         default:
             return state;
     }
@@ -29,8 +24,7 @@ export const authActions = {
             email, login, isAuth
         }
     } as const),
-    setError: (error: string) => (
-        {type: 'AUTH/SET_ERROR', payload: {error}} as const),
+
 };
 
 type  InitialStateType = typeof initialState
