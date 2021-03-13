@@ -43,13 +43,15 @@ export const SkyScannerRow: React.FC<PropsType> = React.memo((props) => {
     const followHandler = () => {
         dispatch(airTableActions.followFavorite({
             QuoteId: ticket.QuoteId,
-            company, price
+            company, price,
+            QuoteDateTime: time
         }));
     };
     const unfollowHandler = () => {
         dispatch(airTableActions.unfollowFavorite({
             QuoteId: ticket.QuoteId,
-            company, price
+            company, price,
+            QuoteDateTime: time
         }));
     };
 

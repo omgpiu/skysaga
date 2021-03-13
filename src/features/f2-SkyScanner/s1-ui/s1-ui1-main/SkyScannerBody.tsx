@@ -60,7 +60,7 @@ export const SkyScannerBody = () => {
     let tickets = quotes.map((e, index) => {
         let company = carriers.find(el => e.OutboundLeg.CarrierIds[0] === el.CarrierId)?.Name;
         let favorite = favorites.filter(fElem => fElem.QuoteId === e.QuoteId)[0];
-        let isFavorite = favorite && favorite.QuoteId === e.QuoteId;
+        let isFavorite = favorite && favorite.QuoteDateTime === e.QuoteDateTime;
 
         return (
             <SkyScannerRow key={1 + index + e.QuoteId} price={e.MinPrice} company={company}

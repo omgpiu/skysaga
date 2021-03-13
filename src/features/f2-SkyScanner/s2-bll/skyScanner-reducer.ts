@@ -72,7 +72,7 @@ const scyScannerReducer = (state: InitialStateType = initialState, action: Actio
 
             return {
                 ...state,
-                favorites: [...state.favorites.filter(e => action.payload.QuoteId !== e.QuoteId)]
+                favorites: [...state.favorites.filter(e => action.payload.QuoteDateTime !== e.QuoteDateTime)]
             };
         case 'SKY_SCANNER/SET_ERROR':
             return {
@@ -113,6 +113,8 @@ type TicketType = {
     QuoteId: number
     company: string | undefined
     price: number
+    QuoteDateTime: string
+
 }
 
 type  InitialStateType = typeof initialState
