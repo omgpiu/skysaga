@@ -1,7 +1,7 @@
 .sky_scanner_wrapper {
     max-width: 100%;
     background-color: #E5E5E5;
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;

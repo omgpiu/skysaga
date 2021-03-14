@@ -67,8 +67,10 @@
     justify-content: space-around;
     align-items: center
 }
-.heartSize{
-    width:23px ;
+
+.heartSize {
+    cursor: pointer;
+    width: 23px;
     height: 20px;
 }
 

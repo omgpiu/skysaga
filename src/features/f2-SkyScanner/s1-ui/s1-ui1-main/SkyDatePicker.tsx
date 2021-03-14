@@ -26,7 +26,7 @@ export const SkyDatePicker = () => {
                         format={'MMMM YYYY'}
                         onChange={onChangeHandler}
                         className={st.datePickerText}
-                        suffixIcon={<CalendarOutlined className={st.datePickerIcon}/>}
+                        suffixIcon={<CalendarOutlined className={st.datePickerIcon} />}
                         clearIcon={true}
                         picker={'month'}
                         disabledDate={disabledDate}
